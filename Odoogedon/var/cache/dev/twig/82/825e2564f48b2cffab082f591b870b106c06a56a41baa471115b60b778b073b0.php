@@ -75,24 +75,12 @@ class __TwigTemplate_af9edeecef0bc55c387c755e61aef8cf9d6937c03f405715de9bce5da41
                 <fieldset>
                     <legend><h2>Iniciar Sesion</h2></legend>
                     <div id=\"formulario_login_campos_nombre_div\" class=\"formulario_login_campos_div\">
-                        <label class=\"formulario_login_label\" for=\"formulario_login_campos_nombre\">Nombre:</label>
-                        <input class=\"formulario_login_input\" id=\"formulario_login_campos_nombre\" name=\"\" type=\"text\" placeholder=\"Nombre\"/>
+                        <label class=\"formulario_login_label\" for=\"formulario_login_campos_nombre\">Usuario:</label>
+                        <input class=\"formulario_login_input\" id=\"formulario_login_campos_nombre\" name=\"\" type=\"text\" placeholder=\"Usuario\"/>
                     </div>
                     <div id=\"formulario_login_campos_apellido_div\" class=\"formulario_login_campos_div\">
-                        <label class=\"formulario_login_label\" for=\"formulario_login_campos_apellido\">Primer Apellido:</label>
-                        <input class=\"formulario_login_input\" id=\"formulario_login_campos_apellido\" name=\"\" type=\"text\" placeholder=\"Primer Apellido\"/>
-                    </div>
-                    <div id=\"formulario_login_campos_apellido2_div\" class=\"formulario_login_campos_div\">
-                        <label class=\"formulario_login_label\" for=\"formulario_login_campos_apellido2\">Segundo Apellido:</label>
-                        <input class=\"formulario_login_input\" id=\"formulario_login_campos_apellido2\" name=\"\" type=\"text\" placeholder=\"Segundo Apellido\"/>
-                    </div>
-                    <div id=\"formulario_login_campos_contra_div\" class=\"formulario_login_campos_div\">
-                        <label class=\"formulario_login_label\" for=\"formulario_login_campos_contra\">Password:</label>
-                        <input class=\"formulario_login_input\" id=\"formulario_login_campos_contra\" name=\"\" type=\"password\" placeholder=\"********\"/>
-                    </div>
-                    <div id=\"formulario_login_campos_contra2_div\" class=\"formulario_login_campos_div\">
-                        <label class=\"formulario_login_label\" for=\"formulario_login_campos_contra2\">Repetir Password:</label>
-                        <input class=\"formulario_login_input\" id=\"formulario_login_campos_contra2\" name=\"\" type=\"password\" placeholder=\"********\"/>
+                        <label class=\"formulario_login_label\" for=\"formulario_login_campos_apellido\">Contraseña:</label>
+                        <input class=\"formulario_login_input\" id=\"formulario_login_campos_apellido\" name=\"\" type=\"text\" placeholder=\"******\"/>
                     </div>
                     <div id=\"formulario_login_campos_boton_div\" class=\"formulario_login_campos_div\">
                         <button type=\"button\" class=\"formulario_login_input\">Entrar</button>
@@ -138,24 +126,12 @@ class __TwigTemplate_af9edeecef0bc55c387c755e61aef8cf9d6937c03f405715de9bce5da41
                 <fieldset>
                     <legend><h2>Iniciar Sesion</h2></legend>
                     <div id=\"formulario_login_campos_nombre_div\" class=\"formulario_login_campos_div\">
-                        <label class=\"formulario_login_label\" for=\"formulario_login_campos_nombre\">Nombre:</label>
-                        <input class=\"formulario_login_input\" id=\"formulario_login_campos_nombre\" name=\"\" type=\"text\" placeholder=\"Nombre\"/>
+                        <label class=\"formulario_login_label\" for=\"formulario_login_campos_nombre\">Usuario:</label>
+                        <input class=\"formulario_login_input\" id=\"formulario_login_campos_nombre\" name=\"\" type=\"text\" placeholder=\"Usuario\"/>
                     </div>
                     <div id=\"formulario_login_campos_apellido_div\" class=\"formulario_login_campos_div\">
-                        <label class=\"formulario_login_label\" for=\"formulario_login_campos_apellido\">Primer Apellido:</label>
-                        <input class=\"formulario_login_input\" id=\"formulario_login_campos_apellido\" name=\"\" type=\"text\" placeholder=\"Primer Apellido\"/>
-                    </div>
-                    <div id=\"formulario_login_campos_apellido2_div\" class=\"formulario_login_campos_div\">
-                        <label class=\"formulario_login_label\" for=\"formulario_login_campos_apellido2\">Segundo Apellido:</label>
-                        <input class=\"formulario_login_input\" id=\"formulario_login_campos_apellido2\" name=\"\" type=\"text\" placeholder=\"Segundo Apellido\"/>
-                    </div>
-                    <div id=\"formulario_login_campos_contra_div\" class=\"formulario_login_campos_div\">
-                        <label class=\"formulario_login_label\" for=\"formulario_login_campos_contra\">Password:</label>
-                        <input class=\"formulario_login_input\" id=\"formulario_login_campos_contra\" name=\"\" type=\"password\" placeholder=\"********\"/>
-                    </div>
-                    <div id=\"formulario_login_campos_contra2_div\" class=\"formulario_login_campos_div\">
-                        <label class=\"formulario_login_label\" for=\"formulario_login_campos_contra2\">Repetir Password:</label>
-                        <input class=\"formulario_login_input\" id=\"formulario_login_campos_contra2\" name=\"\" type=\"password\" placeholder=\"********\"/>
+                        <label class=\"formulario_login_label\" for=\"formulario_login_campos_apellido\">Contraseña:</label>
+                        <input class=\"formulario_login_input\" id=\"formulario_login_campos_apellido\" name=\"\" type=\"text\" placeholder=\"******\"/>
                     </div>
                     <div id=\"formulario_login_campos_boton_div\" class=\"formulario_login_campos_div\">
                         <button type=\"button\" class=\"formulario_login_input\">Entrar</button>

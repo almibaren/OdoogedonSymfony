@@ -21,7 +21,23 @@ class OdoogedonController extends AbstractController
      */
     public function login()
     {
-        $parametros=array('titulo'=> 'Curso añadir DAM2 symfony', "mensaje" =>null);
+        $parametros=array('titulo'=> 'Login', "mensaje" =>null);
         return $this->render('odoogedon/login.html.twig',$parametros);
+    }
+    /**
+     * @Route("/registrar", name="registrar")
+     */
+    public function registrar()
+    {
+        $parametros=array('titulo'=> 'registrar', "mensaje" =>null);
+        return $this->render('odoogedon/registrarse.html.twig',$parametros);
+    }
+    /**
+     * @Route("/tienda", name="tienda")
+     */
+    public function tienda()
+    {
+        $parametros=array('titulo'=> 'tienda', "mensaje" =>null);
+        return $this->render('odoogedon/tienda.html.twig',$parametros);
     }
 }

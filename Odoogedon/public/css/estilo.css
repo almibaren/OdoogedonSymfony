@@ -1,7 +1,12 @@
+body{
+    background-color: #cde4e6;
+}
+
 #formulario_login_campos{
     margin:auto;
     width:30%;
     align:center;
+    background-color: #cde4e6;
 }
 .formulario_login_label{
     float:left;
@@ -21,4 +26,15 @@
     position: fixed;
     left: 0;
     bottom: 0;
+}
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+.card {
+    display: inline-block;
+    width: 30%;
+    height:50%;
+    padding: 5px;
 }

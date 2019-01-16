@@ -17,6 +17,8 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
         $this->staticRoutes = array(
             '/odoogedon' => array(array(array('_route' => 'odoogedon', '_controller' => 'App\\Controller\\OdoogedonController::index'), null, null, null, false, false, null)),
             '/login' => array(array(array('_route' => 'login', '_controller' => 'App\\Controller\\OdoogedonController::login'), null, null, null, false, false, null)),
+            '/registrar' => array(array(array('_route' => 'registrar', '_controller' => 'App\\Controller\\OdoogedonController::registrar'), null, null, null, false, false, null)),
+            '/tienda' => array(array(array('_route' => 'tienda', '_controller' => 'App\\Controller\\OdoogedonController::tienda'), null, null, null, false, false, null)),
             '/_profiler' => array(array(array('_route' => '_profiler_home', '_controller' => 'web_profiler.controller.profiler::homeAction'), null, null, null, true, false, null)),
             '/_profiler/search' => array(array(array('_route' => '_profiler_search', '_controller' => 'web_profiler.controller.profiler::searchAction'), null, null, null, false, false, null)),
             '/_profiler/search_bar' => array(array(array('_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'), null, null, null, false, false, null)),

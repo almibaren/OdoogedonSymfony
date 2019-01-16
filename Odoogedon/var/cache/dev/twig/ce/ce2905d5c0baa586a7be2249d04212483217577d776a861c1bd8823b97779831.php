@@ -51,7 +51,7 @@ class __TwigTemplate_08d01b996419815850dfba3c451a0c60e8eb86a8233861776a4b732a650
 
 \t\t\t\t\t\t<li class=\"dropdown\">
 \t\t\t\t\t\t\t<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">
-\t\t\t\t\t\t\t\tWelcome to Odogedon<span class=\"caret\"></span>
+\t\t\t\t\t\t\t\tWelcome to Odoogedon<span class=\"caret\"></span>
 \t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t<ul class=\"dropdown-menu\" role=\"menu\">
 \t\t\t\t\t\t\t\t<li class=\"divider\"></li>
@@ -63,25 +63,19 @@ class __TwigTemplate_08d01b996419815850dfba3c451a0c60e8eb86a8233861776a4b732a650
         echo "\">Login</a></li>
 \t\t\t\t\t\t\t\t<li><a href=\"";
         // line 27
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
-        echo "\">Tienda</a></li>
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("registrar");
+        echo "\">Registrarse</a></li>
 \t\t\t\t\t\t\t\t<li><a href=\"";
         // line 28
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tienda");
+        echo "\">Tienda</a></li>
+\t\t\t\t\t\t\t\t<li><a href=\"";
+        // line 29
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
         echo "\">Inventario</a></li>
 \t\t\t\t\t\t\t</ul>
 \t\t\t\t\t\t</li>
 \t\t\t\t\t</ul>
-\t\t\t\t\t<form class=\"navbar-form navbar-left\" role=\"search\" method=\"POST\" action=\"";
-        // line 32
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
-        echo "\">
-\t\t\t\t\t\t<div class=\"form-group\">
-\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Nombre Libro\" type=\"text\" name=\"nombre\">
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-default\">Buscar</button>
-\t\t\t\t\t</form>
-
 \t\t\t</div><!-- /.navbar-collapse -->
 \t\t</div><!-- /.container-fluid -->
 </nav>
@@ -106,7 +100,7 @@ class __TwigTemplate_08d01b996419815850dfba3c451a0c60e8eb86a8233861776a4b732a650
 
     public function getDebugInfo()
     {
-        return array (  77 => 32,  70 => 28,  66 => 27,  62 => 26,  49 => 16,  41 => 11,  29 => 1,);
+        return array (  74 => 29,  70 => 28,  66 => 27,  62 => 26,  49 => 16,  41 => 11,  29 => 1,);
     }
 
     public function getSourceContext()
@@ -130,25 +124,19 @@ class __TwigTemplate_08d01b996419815850dfba3c451a0c60e8eb86a8233861776a4b732a650
 
 \t\t\t\t\t\t<li class=\"dropdown\">
 \t\t\t\t\t\t\t<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">
-\t\t\t\t\t\t\t\tWelcome to Odogedon<span class=\"caret\"></span>
+\t\t\t\t\t\t\t\tWelcome to Odoogedon<span class=\"caret\"></span>
 \t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t<ul class=\"dropdown-menu\" role=\"menu\">
 \t\t\t\t\t\t\t\t<li class=\"divider\"></li>
 \t\t\t\t\t\t\t\t<li><b>DOCTRINE</b></li>
 \t\t\t\t\t\t\t\t<li class=\"divider\"></li>
 \t\t\t\t\t\t\t\t<li><a href=\"{{ path('login') }}\">Login</a></li>
-\t\t\t\t\t\t\t\t<li><a href=\"{{ path('login') }}\">Tienda</a></li>
+\t\t\t\t\t\t\t\t<li><a href=\"{{ path('registrar') }}\">Registrarse</a></li>
+\t\t\t\t\t\t\t\t<li><a href=\"{{ path('tienda') }}\">Tienda</a></li>
 \t\t\t\t\t\t\t\t<li><a href=\"{{ path('login') }}\">Inventario</a></li>
 \t\t\t\t\t\t\t</ul>
 \t\t\t\t\t\t</li>
 \t\t\t\t\t</ul>
-\t\t\t\t\t<form class=\"navbar-form navbar-left\" role=\"search\" method=\"POST\" action=\"{{ path('login') }}\">
-\t\t\t\t\t\t<div class=\"form-group\">
-\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Nombre Libro\" type=\"text\" name=\"nombre\">
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-default\">Buscar</button>
-\t\t\t\t\t</form>
-
 \t\t\t</div><!-- /.navbar-collapse -->
 \t\t</div><!-- /.container-fluid -->
 </nav>
