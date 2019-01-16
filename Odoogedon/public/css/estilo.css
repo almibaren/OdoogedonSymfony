@@ -1,0 +1,24 @@
+#formulario_login_campos{
+    margin:auto;
+    width:30%;
+    align:center;
+}
+.formulario_login_label{
+    float:left;
+}
+.formulario_login_input{
+    float:right;
+}
+.formulario_login_campos_div{
+    display:inline-block;
+    width:100%;
+}
+#formulario_login_campos_boton_div{
+    margin-top:10%;
+}
+#footer{
+    margin-bottom:0%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}

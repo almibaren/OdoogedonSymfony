@@ -1,0 +1,38 @@
+{% extends 'plantilla.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block contenido %}
+    <div id="contenedor">
+        <form id="formulario_login">
+            <div id="formulario_login_campos">
+                <fieldset>
+                    <legend><h2>Iniciar Sesion</h2></legend>
+                    <div id="formulario_login_campos_nombre_div" class="formulario_login_campos_div">
+                        <label class="formulario_login_label" for="formulario_login_campos_nombre">Nombre:</label>
+                        <input class="formulario_login_input" id="formulario_login_campos_nombre" name="" type="text" placeholder="Nombre"/>
+                    </div>
+                    <div id="formulario_login_campos_apellido_div" class="formulario_login_campos_div">
+                        <label class="formulario_login_label" for="formulario_login_campos_apellido">Primer Apellido:</label>
+                        <input class="formulario_login_input" id="formulario_login_campos_apellido" name="" type="text" placeholder="Primer Apellido"/>
+                    </div>
+                    <div id="formulario_login_campos_apellido2_div" class="formulario_login_campos_div">
+                        <label class="formulario_login_label" for="formulario_login_campos_apellido2">Segundo Apellido:</label>
+                        <input class="formulario_login_input" id="formulario_login_campos_apellido2" name="" type="text" placeholder="Segundo Apellido"/>
+                    </div>
+                    <div id="formulario_login_campos_contra_div" class="formulario_login_campos_div">
+                        <label class="formulario_login_label" for="formulario_login_campos_contra">Password:</label>
+                        <input class="formulario_login_input" id="formulario_login_campos_contra" name="" type="password" placeholder="********"/>
+                    </div>
+                    <div id="formulario_login_campos_contra2_div" class="formulario_login_campos_div">
+                        <label class="formulario_login_label" for="formulario_login_campos_contra2">Repetir Password:</label>
+                        <input class="formulario_login_input" id="formulario_login_campos_contra2" name="" type="password" placeholder="********"/>
+                    </div>
+                    <div id="formulario_login_campos_boton_div" class="formulario_login_campos_div">
+                        <button type="button" class="formulario_login_input">Entrar</button>
+                    </div>
+                </fieldset>
+            </div>
+        </form>
+    </div>
+{% endblock %}
