@@ -1,0 +1,21 @@
+{% extends 'plantilla.html.twig' %}
+
+{% block title %}{{ gorro[0].nombre }}{% endblock %}
+
+{% block contenido %}
+    <div id="contenedor">
+        <div class="contenedor-centrado">
+            {% for go in gorro %}
+            <fieldset class="fieldset-producto">
+                <legend><h2>{{ go.nombre }}</h2></legend>
+                <img class="imagen" src={{ asset(go.imagen) }}/>
+
+                <div class="texto-centrado">{{ go.precio }}€</div>
+                <div id="contenedor_producto_boton_div" class="formulario_login_campos_div">
+                    <button type="button" class="formulario_login_input" onclick="window.location.href='http://192.168.6.7:8000/comprado/{{ go.id }}'">Comprar</button>
+                </div>
+            </fieldset>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

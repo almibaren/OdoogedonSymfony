@@ -71,11 +71,15 @@ class __TwigTemplate_08d01b996419815850dfba3c451a0c60e8eb86a8233861776a4b732a650
         echo "\">Tienda</a></li>
 \t\t\t\t\t\t\t\t<li><a href=\"";
         // line 29
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("inventario");
         echo "\">Inventario</a></li>
 \t\t\t\t\t\t\t</ul>
 \t\t\t\t\t\t</li>
 \t\t\t\t\t</ul>
+\t\t\t\t\t<a class=\"navbar-brand\" style=\"float: right;\" href=\"";
+        // line 33
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("cerrarSesion");
+        echo "\">Cerrar sesion</a>
 \t\t\t</div><!-- /.navbar-collapse -->
 \t\t</div><!-- /.container-fluid -->
 </nav>
@@ -100,7 +104,7 @@ class __TwigTemplate_08d01b996419815850dfba3c451a0c60e8eb86a8233861776a4b732a650
 
     public function getDebugInfo()
     {
-        return array (  74 => 29,  70 => 28,  66 => 27,  62 => 26,  49 => 16,  41 => 11,  29 => 1,);
+        return array (  81 => 33,  74 => 29,  70 => 28,  66 => 27,  62 => 26,  49 => 16,  41 => 11,  29 => 1,);
     }
 
     public function getSourceContext()
@@ -133,10 +137,11 @@ class __TwigTemplate_08d01b996419815850dfba3c451a0c60e8eb86a8233861776a4b732a650
 \t\t\t\t\t\t\t\t<li><a href=\"{{ path('login') }}\">Login</a></li>
 \t\t\t\t\t\t\t\t<li><a href=\"{{ path('registrar') }}\">Registrarse</a></li>
 \t\t\t\t\t\t\t\t<li><a href=\"{{ path('tienda') }}\">Tienda</a></li>
-\t\t\t\t\t\t\t\t<li><a href=\"{{ path('login') }}\">Inventario</a></li>
+\t\t\t\t\t\t\t\t<li><a href=\"{{ path('inventario') }}\">Inventario</a></li>
 \t\t\t\t\t\t\t</ul>
 \t\t\t\t\t\t</li>
 \t\t\t\t\t</ul>
+\t\t\t\t\t<a class=\"navbar-brand\" style=\"float: right;\" href=\"{{ path('cerrarSesion') }}\">Cerrar sesion</a>
 \t\t\t</div><!-- /.navbar-collapse -->
 \t\t</div><!-- /.container-fluid -->
 </nav>

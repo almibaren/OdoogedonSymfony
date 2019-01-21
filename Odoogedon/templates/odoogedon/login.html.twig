@@ -4,20 +4,20 @@
 
 {% block contenido %}
     <div id="contenedor">
-        <form id="formulario_login">
-            <div id="formulario_login_campos">
+        <form id="formulario_login" method="post" action="{{ path('login') }}">
+            <div class="contenedor-centrado">
                 <fieldset>
                     <legend><h2>Iniciar Sesion</h2></legend>
                     <div id="formulario_login_campos_nombre_div" class="formulario_login_campos_div">
                         <label class="formulario_login_label" for="formulario_login_campos_nombre">Usuario:</label>
-                        <input class="formulario_login_input" id="formulario_login_campos_nombre" name="" type="text" placeholder="Usuario"/>
+                        <input class="formulario_login_input" id="formulario_login_campos_nombre" name="name" type="text" placeholder="Usuario"/>
                     </div>
                     <div id="formulario_login_campos_apellido_div" class="formulario_login_campos_div">
                         <label class="formulario_login_label" for="formulario_login_campos_apellido">Contraseña:</label>
-                        <input class="formulario_login_input" id="formulario_login_campos_apellido" name="" type="text" placeholder="******"/>
+                        <input class="formulario_login_input" id="formulario_login_campos_apellido" name="passwd" type="password" placeholder="******"/>
                     </div>
                     <div id="formulario_login_campos_boton_div" class="formulario_login_campos_div">
-                        <button type="button" class="formulario_login_input">Entrar</button>
+                        <input type="submit" class="formulario_login_input" value="Entrar"/>
                     </div>
                 </fieldset>
             </div>

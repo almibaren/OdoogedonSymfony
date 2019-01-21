@@ -2584,7 +2584,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.9_yeNH1"/>
+      <argument type="service" id=".service_locator.809oGcC"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -3908,7 +3908,10 @@
     <service id="EasyCorp\EasyLog\EasyLogHandler" class="EasyCorp\EasyLog\EasyLogHandler" public="false">
       <argument>/home/almi/proyecto/OdoogedonSymfony/Odoogedon/var/log/dev.log</argument>
     </service>
+    <service id=".abstract.instanceof.App\Repository\AlmibarenLibreria" class="App\Repository\AlmibarenLibreria" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\AlmibarenUsuario" class="App\Repository\AlmibarenUsuario" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\OdoogedonController" class="App\Controller\OdoogedonController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\OdoogedonWebServiceController" class="App\Controller\OdoogedonWebServiceController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.9_yeNH1" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection"/>
@@ -3984,6 +3987,13 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
+    <service id=".service_locator.809oGcC" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Repository\AlmibarenLibreria" type="service" id="App\Repository\AlmibarenLibreria"/>
+        <argument key="App\Repository\AlmibarenUsuario" type="service" id="App\Repository\AlmibarenUsuario"/>
+      </argument>
+    </service>
     <service id="debug.security.voter.security.access.authenticated_voter" class="Symfony\Component\Security\Core\Authorization\Voter\TraceableVoter">
       <argument type="service" id="security.access.authenticated_voter"/>
       <argument type="service" id="debug.event_dispatcher"/>
@@ -4052,19 +4062,15 @@
     </service>
     <service id="doctrine.dbal.default_connection" class="Doctrine\DBAL\Connection" public="true">
       <argument type="collection">
-        <argument key="driver">pdo_mysql</argument>
-        <argument key="charset">utf8mb4</argument>
+        <argument key="driver">pdo_pgsql</argument>
+        <argument key="charset">utf8</argument>
         <argument key="url">%env(resolve:DATABASE_URL)%</argument>
         <argument key="host">localhost</argument>
         <argument key="port">null</argument>
         <argument key="user">root</argument>
         <argument key="password">null</argument>
         <argument key="driverOptions" type="collection"/>
-        <argument key="serverVersion">5.7</argument>
-        <argument key="defaultTableOptions" type="collection">
-          <argument key="charset">utf8mb4</argument>
-          <argument key="collate">utf8mb4_unicode_ci</argument>
-        </argument>
+        <argument key="defaultTableOptions" type="collection"/>
       </argument>
       <argument type="service" id="doctrine.dbal.default_connection.configuration"/>
       <argument type="service" id="doctrine.dbal.default_connection.event_manager"/>
@@ -4291,6 +4297,16 @@
         <argument type="service" id="monolog.handler.main"/>
       </call>
     </service>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\AlmibarenLibreria" class="App\Repository\AlmibarenLibreria" autowire="true" abstract="true"/>
+    <service id="App\Repository\AlmibarenLibreria" class="App\Repository\AlmibarenLibreria" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\AlmibarenUsuario" class="App\Repository\AlmibarenUsuario" autowire="true" abstract="true"/>
+    <service id="App\Repository\AlmibarenUsuario" class="App\Repository\AlmibarenUsuario" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\OdoogedonController" class="App\Controller\OdoogedonController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\OdoogedonController" class="App\Controller\OdoogedonController" autowire="true" abstract="true"/>
     <service id="App\Controller\OdoogedonController" class="App\Controller\OdoogedonController" public="true" autowire="true" autoconfigure="true">
@@ -4298,6 +4314,15 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.KTVqfp6.App\Controller\OdoogedonController"/>
+      </call>
+    </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\OdoogedonWebServiceController" class="App\Controller\OdoogedonWebServiceController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\OdoogedonWebServiceController" class="App\Controller\OdoogedonWebServiceController" autowire="true" abstract="true"/>
+    <service id="App\Controller\OdoogedonWebServiceController" class="App\Controller\OdoogedonWebServiceController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.KTVqfp6.App\Controller\OdoogedonWebServiceController"/>
       </call>
     </service>
     <service id="maker.auto_command.make_auth" class="Symfony\Bundle\MakerBundle\Command\MakerCommand" public="false">
@@ -4675,6 +4700,12 @@
     <service id=".service_locator.KTVqfp6.App\Controller\OdoogedonController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\OdoogedonController"/>
       <argument>App\Controller\OdoogedonController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.KTVqfp6" method="withContext"/>
+    </service>
+    <service id=".service_locator.KTVqfp6.App\Controller\OdoogedonWebServiceController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\OdoogedonWebServiceController"/>
+      <argument>App\Controller\OdoogedonWebServiceController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.KTVqfp6" method="withContext"/>
     </service>

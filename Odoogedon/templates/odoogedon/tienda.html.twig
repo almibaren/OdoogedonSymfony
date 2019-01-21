@@ -1,87 +1,23 @@
 {% extends 'plantilla.html.twig' %}
 
-{% block title %}Registro{% endblock %}
+{% block title %}{{ titulo }}{% endblock %}
 
 {% block contenido %}
     <div id="contenedor">
         <div class="scrolling-wrapper">
-            <div class="card">
-                <div flex>hola</div>
-                <div flex></div>
-                <div flex style="bottom:0;">frferf€</div>
-            </div><div class="card">
-                <div flex>hola</div>
-                <div flex></div>
-                <div flex style="bottom:0;">frferf€</div>
-            </div><div class="card">
-                <div flex>hola</div>
-                <div flex></div>
-                <div flex style="bottom:0;">frferf€</div>
-            </div><div class="card">
-                <div flex>hola</div>
-                <div flex></div>
-                <div flex style="bottom:0;">frferf€</div>
-            </div><div class="card">
-                <div flex>hola</div>
-                <div flex></div>
-                <div flex style="bottom:0;">frferf€</div>
-            </div><div class="card">
-                <div flex>hola</div>
-                <div flex></div>
-                <div flex style="bottom:0;">frferf€</div>
-            </div><div class="card">
-                <div flex>hola</div>
-                <div flex></div>
-                <div flex style="bottom:0;">frferf€</div>
-            </div><div class="card">
-                <div flex>hola</div>
-                <div flex></div>
-                <div flex style="bottom:0;">frferf€</div>
-            </div><div class="card">
-                <div flex>hola</div>
-                <div flex></div>
-                <div flex style="bottom:0;">frferf€</div>
-            </div><div class="card">
-                <div flex>hola</div>
-                <div flex></div>
-                <div flex style="bottom:0;">frferf€</div>
-            </div><div class="card">
-                <div flex>hola</div>
-                <div flex></div>
-                <div flex style="bottom:0;">frferf€</div>
-            </div><div class="card">
-                <div flex>hola</div>
-                <div flex></div>
-                <div flex style="bottom:0;">frferf€</div>
-            </div><div class="card">
-                <div flex>hola</div>
-                <div flex></div>
-                <div flex style="bottom:0;">frferf€</div>
-            </div><div class="card">
-                <div flex>hola</div>
-                <div flex></div>
-                <div flex style="bottom:0;">frferf€</div>
-            </div><div class="card">
-                <div flex>hola</div>
-                <div flex></div>
-                <div flex style="bottom:0;">frferf€</div>
-            </div><div class="card">
-                <div flex>hola</div>
-                <div flex></div>
-                <div flex style="bottom:0;">frferf€</div>
-            </div><div class="card">
-                <div flex>hola</div>
-                <div flex></div>
-                <div flex style="bottom:0;">frferf€</div>
-            </div><div class="card">
-                <div flex>hola</div>
-                <div flex></div>
-                <div flex style="bottom:0;">frferf€</div>
-            </div><div class="card">
-                <div flex>hola</div>
-                <div flex></div>
-                <div flex style="bottom:0;">frferf€</div>
-            </div>
+            {% for gorro in gorros %}
+                {% if gorro.contador%4==0 %}
+                    <br>
+                {% endif %}
+            <a href="producto/{{ gorro.id }}">
+                <div class="card">
+                    <div flex class="texto-centrado">{{ gorro.nombre }}</div>
+                    <div flex class="texto-centrado"><img class="imagen" src={{ asset(gorro.imagen) }}/></div>
+                    <div flex class="texto-centrado"><p>Valoracion: {{ gorro.valoracion }}/10 &#9733</p></div>
+                    <div flex class="texto-centrado">{{ gorro.precio }}€</div>
+                </div>
+            </a>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
