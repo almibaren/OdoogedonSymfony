@@ -14,11 +14,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class OdoogedonController extends AbstractController
 {
     /**
-     * @Route("/odoogedon", name="odoogedon")
+     * @Route("/", name="odoogedon")
      */
     public function index()
     {
-        return $this->render('odoogedon/index.html.twig', [
+        return $this->render('odoogedon/tienda.html.twig', [
             'controller_name' => 'OdoogedonController',
         ]);
     }
@@ -45,7 +45,21 @@ class OdoogedonController extends AbstractController
      */
     public function registrar()
     {
+        $error ="";
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if($_POST['user']!=null && $_POST['name']!=null && $_POST['ap1']!=null && $_POST['ap2']!=null && $_POST['passwd']!=null && $_POST['passwd2']!=null && $_POST['user']!="" && $_POST['name']!="" && $_POST['ap1']!="" && $_POST['ap2']!="" && $_POST['passwd']!="" && $_POST['passwd2']!=""){
+                $idUsuario=$this->getDoctrine()->getRepository(AlmibarenWormsUser::class)->findBy(array('name'=>$_POST['user']));
+                if($idUsuario>0){
+                    $error="Ya existe ese usuario";
+                }if($_POST['passwd']!=$_POST['passwd2']){
+                    $error="Las contraseñas deben coincidir";
+                }
+            }else{
+                $error="Debe rellenar todos los campos";
+            }
+        }
         $parametros=array('titulo'=> 'registrar', "mensaje" =>null);
+        $parametros['error']=$error;
         return $this->render('odoogedon/registrarse.html.twig',$parametros);
     }
     /**
@@ -53,6 +67,21 @@ class OdoogedonController extends AbstractController
      */
     public function tienda()
     {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if(isset($_POST['user']) && isset($_POST['passwd'])){
+                $idUsuario=$this->getDoctrine()->getRepository(AlmibarenWormsUser::class)->findUsuarioByCredentials($_POST['user'],$_POST['passwd']);
+                if($idUsuario>0){
+                    session_start();
+                    $_SESSION['idUsuario']=$idUsuario;
+                    return $this->redirectToRoute('tienda');
+                }
+            }
+
+        }
+        if(session_status()==PHP_SESSION_NONE){
+            return $this->redirectToRoute('login');
+        }
+
         $datos = $this->getDoctrine()->getRepository(AlmibarenWormsHats::class)->findAll();
         $lista = array();
         $imagen="";
@@ -60,8 +89,6 @@ class OdoogedonController extends AbstractController
         foreach ($datos as $gorro){
             foreach ($this->getDoctrine()->getRepository(AlmibarenWormsHatsAlmibarenWormsImagesRel::class)->findAllByIdGorro($gorro->getId()) as $imagen2){
                 $imagen=$imagen2["path"];
-                var_dump("aaaaaaaa");
-                var_dump($imagen2);
                 $imagen="images/".$imagen;
             }
             $cont++;
@@ -93,17 +120,26 @@ class OdoogedonController extends AbstractController
                 $imagen=$imagen2["path"];
                 $imagen="images/".$imagen;
             }
+            $des =preg_split("<p>",$gorro->getDescription());
+
 
 
             $lista[]=array(
                 'id' => $gorro->getId(),
                 'alias' => $gorro->getShortName(),
                 'nombre' => $gorro->getName(),
-                'descripcion' => $gorro->getDescription(),
+                'descripcion' => substr(preg_split("<br>",$des[1])[0],1,-1),
                 'precio' => $gorro->getPrize(),
                 'imagen' => $imagen,
                 'valoracion' => $gorro->getRating()
             );
+        }
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $entityManager=$this->getDoctrine()->getManager();
+            $gorro=$entityManager->getRepository(AlmibarenWormsHats::class)->find($id);
+            $gorro->setRating($_POST['estrellas']);
+            $entityManager->flush();
+            return $this->redirectToRoute('tienda');
         }
         $parametros['gorro']=$lista;
         return $this->render('odoogedon/producto.twig',$parametros);
@@ -145,8 +181,6 @@ class OdoogedonController extends AbstractController
             foreach ($datos as $gorro){
                 foreach ($this->getDoctrine()->getRepository(AlmibarenWormsHatsAlmibarenWormsImagesRel::class)->findAllByIdGorro($gorro->getId()) as $imagen2){
                     $imagen=$imagen2["path"];
-                    var_dump("aaaaaaaa");
-                    var_dump($imagen2);
                     $imagen="images/".$imagen;
                 }
                 $cont++;
@@ -177,8 +211,10 @@ class OdoogedonController extends AbstractController
                 $params["secure"], $params["httponly"]
             );
         }
+        if (session_status()==PHP_SESSION_ACTIVE) {
             session_destroy();
             session_abort();
+        }
 
 
         return $this->redirectToRoute('login');

@@ -24,7 +24,7 @@ class AlmibarenUsuario extends ServiceEntityRepository
     public function findGorrosByUsuario($idUsuario): array
     {
         $entityManager = $this->getEntityManager();
-        $querybuilder=$entityManager->createQueryBuilder()->select('g')->from('App\Entity\AlmibarenWormsHats','g')->innerJoin('App\Entity\AlmibarenWormsHatsAlmibarenWormsUserRel','r','WITH','r.almibarenWormsHats=g.id')->innerJoin('\App\Entity\AlmibarenWormsUser','u','WITH','r.almibarenWormsUser=u.id')->where('u.username = :username')->setParameters(array('username'=>'mikel'));
+        $querybuilder=$entityManager->createQueryBuilder()->select('g')->from('App\Entity\AlmibarenWormsHats','g')->innerJoin('App\Entity\AlmibarenWormsHatsAlmibarenWormsUserRel','r','WITH','r.almibarenWormsHats=g.id')->innerJoin('\App\Entity\AlmibarenWormsUser','u','WITH','r.almibarenWormsUser=u.id')->where('u.id = :id')->setParameters(array('id'=>$idUsuario));
 
         return $querybuilder->getQuery()->execute();
     }

@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\AlmibarenWormsUser;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use App\Entity\AlmibarenWormsHatsAlmibarenWormsImagesRel;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
@@ -27,31 +27,39 @@ class OdoogedonWebServiceController extends AbstractController
 
     }
     /**
-     * @Route("/ws/libros/anadir", name="wsanadir", methods={"POST"})
+     * @Route("/ws/inventario", name="wsinventario", methods={"POST"})
      */
-    public function anadir()
+    public function inventario()
     {
-        // RECIBIR JSON
-        $datos = file_get_contents('php://input');
-        $request = json_decode($datos);
 
-        // CREAR UN NUEVO ALMILIBRO
-        $libro = new AlmiLibro();
-        $libro->setName($request->titulo);
-        $libro->setShortName($request->alias);
-        $libro->setPages($request->paginas);
-        $libro->setDescription($request->des);
-        $date = \DateTime::createFromFormat('Y-m-d', $request->fecha);
-        $libro->setDateRelease($date);
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $idUsuario=$_POST['idUsuario'];
+            $datos = $this->getDoctrine()->getRepository(AlmibarenWormsUser::class)->findGorrosByUsuario($idUsuario);
+            $lista = array();
+            $imagen="";
+            $cont=0;
+            foreach ($datos as $gorro){
+                foreach ($this->getDoctrine()->getRepository(AlmibarenWormsHatsAlmibarenWormsImagesRel::class)->findAllByIdGorro($gorro->getId()) as $imagen2){
+                    $imagen=$imagen2["path"];
+                    $imagen="images/".$imagen;
+                }
+                $cont++;
 
-        // AÑADIR EL ALMILIBRO A ODOO
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($libro);
-        $entityManager->flush();
-        $parametros['mensaje'] = 'LIBRO INSERTADO';
-
-        return $this->enviar($parametros);
+                $lista[]=array(
+                    'id' => $gorro->getId(),
+                    'alias' => $gorro->getShortName(),
+                    'nombre' => $gorro->getName(),
+                    'descripcion' => $gorro->getDescription(),
+                    'precio' => $gorro->getPrize(),
+                    'imagen' => $imagen,
+                    'valoracion' => $gorro->getRating(),
+                    'contador'=>$cont
+                );
+            }
+            return $this->jsonAlmibaren($lista);
+        }
     }
+
     public function jsonAlmibaren($data){
         $normalizers = array(new GetSetMethodNormalizer());
         $encoders = array("json" => new JsonEncoder());

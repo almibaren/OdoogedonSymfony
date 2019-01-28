@@ -3,19 +3,58 @@
 {% block title %}{{ gorro[0].nombre }}{% endblock %}
 
 {% block contenido %}
+{% for go in gorro %}
     <div id="contenedor">
         <div class="contenedor-centrado">
-            {% for go in gorro %}
+
             <fieldset class="fieldset-producto">
                 <legend><h2>{{ go.nombre }}</h2></legend>
-                <img class="imagen" src={{ asset(go.imagen) }}/>
-
-                <div class="texto-centrado">{{ go.precio }}€</div>
-                <div id="contenedor_producto_boton_div" class="formulario_login_campos_div">
-                    <button type="button" class="formulario_login_input" onclick="window.location.href='http://192.168.6.7:8000/comprado/{{ go.id }}'">Comprar</button>
+                <img class=" imagenProducto" style="float: left" src={{ asset(go.imagen) }}/>
+                <div style="float: right;margin-top: 10%;">
+                    <div class="texto-centrado">{{ go.precio }}€</div>
+                    <br>
+                    <div class="texto-centrado">{{ go.descripcion }}</div>
+                    <br><br><br>
+                    <div id="contenedor_producto_boton_div" class="formulario_login_campos_div">
+                        <button type="button" style="font-size: x-large"  onclick="window.location.href='http://192.168.6.7:8000/comprado/{{ go.id }}'">Comprar</button>
+                    </div>
                 </div>
             </fieldset>
-            {% endfor %}
+
+        </div>
+        <br>
+        <div class="div_derecha">
+            <div class="texto-centrado">
+                <form action="/producto/{{ go.id }}" method="post">
+                    <h4>Valorar</h4>
+                    <div class="estrellas_valoracion">
+                        <p class="clasificacion">
+                            <input id="radio1" type="radio" name="estrellas" value="10">
+                            <label for="radio1">★</label>
+                            <input id="radio2" type="radio" name="estrellas" value="9">
+                            <label for="radio2">★</label>
+                            <input id="radio3" type="radio" name="estrellas" value="8">
+                            <label for="radio3">★</label>
+                            <input id="radio4" type="radio" name="estrellas" value="7">
+                            <label for="radio4">★</label>
+                            <input id="radio5" type="radio" name="estrellas" value="6">
+                            <label for="radio5">★</label>
+                            <input id="radio6" type="radio" name="estrellas" value="5">
+                            <label for="radio6">★</label>
+                            <input id="radio7" type="radio" name="estrellas" value="4">
+                            <label for="radio7">★</label>
+                            <input id="radio8" type="radio" name="estrellas" value="3">
+                            <label for="radio8">★</label>
+                            <input id="radio9" type="radio" name="estrellas" value="2">
+                            <label for="radio9">★</label>
+                            <input id="radio10" type="radio" name="estrellas" value="1">
+                            <label for="radio10">★</label>
+                        </p>
+                    </div>
+                    <input type="submit" value="Valorar" style="font-size: x-large">
+                </form>
+            </div>
         </div>
     </div>
+{% endfor %}
 {% endblock %}

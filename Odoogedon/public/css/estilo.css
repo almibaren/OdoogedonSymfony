@@ -7,7 +7,7 @@ a{
 
 .contenedor-centrado{
     margin:auto;
-    width:30%;
+    width:60%;
     align:center;
     background-color: #cde4e6;
 }
@@ -53,4 +53,35 @@ a{
 .fieldset-producto{
     display: inherit;
     text-align: center;
+}
+.label_errores{
+    color: red;
+    right: 0px;
+}
+.imagenProducto{
+    width: 30%;
+}
+p.clasificacion {
+    overflow: hidden;
+    display: inline-block;
+}
+
+p.clasificacion input {
+    position: absolute;
+    top: -100px;
+}
+
+p.clasificacion label {
+    float: right;
+    color: #333;
+}
+
+p.clasificacion label:hover,
+p.clasificacion label:hover ~ label,
+p.clasificacion input:checked ~ label {
+    color: #FFF;
+}
+.estrellas_valoracion{
+    top:30%;
+    height: 60%;
 }

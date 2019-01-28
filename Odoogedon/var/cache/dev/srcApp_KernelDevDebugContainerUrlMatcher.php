@@ -15,14 +15,14 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
     {
         $this->context = $context;
         $this->staticRoutes = array(
-            '/odoogedon' => array(array(array('_route' => 'odoogedon', '_controller' => 'App\\Controller\\OdoogedonController::index'), null, null, null, false, false, null)),
+            '/' => array(array(array('_route' => 'odoogedon', '_controller' => 'App\\Controller\\OdoogedonController::index'), null, null, null, false, false, null)),
             '/login' => array(array(array('_route' => 'login', '_controller' => 'App\\Controller\\OdoogedonController::login'), null, null, null, false, false, null)),
             '/registrar' => array(array(array('_route' => 'registrar', '_controller' => 'App\\Controller\\OdoogedonController::registrar'), null, null, null, false, false, null)),
             '/tienda' => array(array(array('_route' => 'tienda', '_controller' => 'App\\Controller\\OdoogedonController::tienda'), null, null, null, false, false, null)),
             '/inventario' => array(array(array('_route' => 'inventario', '_controller' => 'App\\Controller\\OdoogedonController::inventario'), null, null, null, false, false, null)),
             '/cerrarSesion' => array(array(array('_route' => 'cerrarSesion', '_controller' => 'App\\Controller\\OdoogedonController::cerrarSesion'), null, null, null, false, false, null)),
             '/ws/login' => array(array(array('_route' => 'wslogin', '_controller' => 'App\\Controller\\OdoogedonWebServiceController::login'), null, array('POST' => 0), null, false, false, null)),
-            '/ws/libros/anadir' => array(array(array('_route' => 'wsanadir', '_controller' => 'App\\Controller\\OdoogedonWebServiceController::anadir'), null, array('POST' => 0), null, false, false, null)),
+            '/ws/inventario' => array(array(array('_route' => 'wsinventario', '_controller' => 'App\\Controller\\OdoogedonWebServiceController::inventario'), null, array('POST' => 0), null, false, false, null)),
             '/_profiler' => array(array(array('_route' => '_profiler_home', '_controller' => 'web_profiler.controller.profiler::homeAction'), null, null, null, true, false, null)),
             '/_profiler/search' => array(array(array('_route' => '_profiler_search', '_controller' => 'web_profiler.controller.profiler::searchAction'), null, null, null, false, false, null)),
             '/_profiler/search_bar' => array(array(array('_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'), null, null, null, false, false, null)),

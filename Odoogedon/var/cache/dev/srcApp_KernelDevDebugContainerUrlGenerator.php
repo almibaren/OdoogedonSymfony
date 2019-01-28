@@ -20,7 +20,7 @@ class srcApp_KernelDevDebugContainerUrlGenerator extends Symfony\Component\Routi
         $this->defaultLocale = $defaultLocale;
         if (null === self::$declaredRoutes) {
             self::$declaredRoutes = array(
-        'odoogedon' => array(array(), array('_controller' => 'App\\Controller\\OdoogedonController::index'), array(), array(array('text', '/odoogedon')), array(), array()),
+        'odoogedon' => array(array(), array('_controller' => 'App\\Controller\\OdoogedonController::index'), array(), array(array('text', '/')), array(), array()),
         'login' => array(array(), array('_controller' => 'App\\Controller\\OdoogedonController::login'), array(), array(array('text', '/login')), array(), array()),
         'registrar' => array(array(), array('_controller' => 'App\\Controller\\OdoogedonController::registrar'), array(), array(array('text', '/registrar')), array(), array()),
         'tienda' => array(array(), array('_controller' => 'App\\Controller\\OdoogedonController::tienda'), array(), array(array('text', '/tienda')), array(), array()),
@@ -29,7 +29,7 @@ class srcApp_KernelDevDebugContainerUrlGenerator extends Symfony\Component\Routi
         'inventario' => array(array(), array('_controller' => 'App\\Controller\\OdoogedonController::inventario'), array(), array(array('text', '/inventario')), array(), array()),
         'cerrarSesion' => array(array(), array('_controller' => 'App\\Controller\\OdoogedonController::cerrarSesion'), array(), array(array('text', '/cerrarSesion')), array(), array()),
         'wslogin' => array(array(), array('_controller' => 'App\\Controller\\OdoogedonWebServiceController::login'), array(), array(array('text', '/ws/login')), array(), array()),
-        'wsanadir' => array(array(), array('_controller' => 'App\\Controller\\OdoogedonWebServiceController::anadir'), array(), array(array('text', '/ws/libros/anadir')), array(), array()),
+        'wsinventario' => array(array(), array('_controller' => 'App\\Controller\\OdoogedonWebServiceController::inventario'), array(), array(array('text', '/ws/inventario')), array(), array()),
         '_twig_error_test' => array(array('code', '_format'), array('_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code' => '\\d+'), array(array('variable', '.', '[^/]++', '_format', true), array('variable', '/', '\\d+', 'code', true), array('text', '/_error')), array(), array()),
         '_wdt' => array(array('token'), array('_controller' => 'web_profiler.controller.profiler::toolbarAction'), array(), array(array('variable', '/', '[^/]++', 'token', true), array('text', '/_wdt')), array(), array()),
         '_profiler_home' => array(array(), array('_controller' => 'web_profiler.controller.profiler::homeAction'), array(), array(array('text', '/_profiler/')), array(), array()),
